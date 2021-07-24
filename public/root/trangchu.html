@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-sm-12">
+        <h1 class="py-5">Sản phẩm nổi bật</h1>
+    </div>
+    <div class="col-sm-4" ng-repeat="item in noibat">
+        <div class="card">
+            <img class="card-img-top" src="{{item.sanpham}}" alt="Card image" style="width:100%">
+            <div class="card-body">
+                <h4 class="card-title">{{item.ten}}</h4>
+                <p class="card-text">{{item.gia | currency : '' : 0}} VNĐ</p>
+                <a href="#!in4/{{item.ten}}" class="btn btn-primary stretched-link" data-toggle="tooltip"
+                    data-placement="bottom" title="Xem thêm về sản phẩm">Xem chi tiết</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12">
+        <h1 class="py-5">Được ưa chuộng</h1>
+    </div>
+    <div class="col-sm-4" ng-repeat="item in uachuong">
+        <div class="card">
+            <img class="card-img-top" src="{{item.sanpham}}" alt="Card image" style="width:100%">
+            <div class="card-body">
+                <h4 class="card-title">{{item.ten}}</h4>
+                <p class="card-text">{{item.gia | currency : '' : 0}} VNĐ</p>
+                <a href="#!in4/{{item.ten}}" class="btn btn-primary stretched-link" data-toggle="tooltip"
+                    data-placement="bottom" title="Xem thêm về sản phẩm">Xem chi tiết</a>
+            </div>
+        </div>
+    </div>
+</div>

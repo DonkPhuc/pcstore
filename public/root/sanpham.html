@@ -1,0 +1,224 @@
+    <main class="row">
+        <div class="col-12 py-3">
+            <div class="row">
+                <div class="col-12">
+                    <span>HIện thị sản phẩm theo</span>
+                </div>
+                <div class="col-12">
+                    <input type="radio" ng-model="myRario" value="1"> A-Z
+                    <input type="radio" ng-model="myRario" value="2"> giá tăng
+                    <input type="radio" ng-model="myRario" value="3"> giá giảm
+                </div>
+                <div class="col-12">
+                    <input type="radio" ng-model="myRarioSP" value="all"> All
+                    <input type="radio" ng-model="myRarioSP" value="pc"> PC
+                    <input type="radio" ng-model="myRarioSP" value="laptop"> Laptop
+                </div>
+            </div>
+        </div>
+        <div class="col-12 pb-5">
+            <input class="form-control" type="search" placeholder="Tìm Kiếm..." ng-model="myInput" onchange="timkiem()">
+        </div>
+        <div ng-switch="myRarioSP" class="col-12">
+            <div ng-switch-when="pc">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h1>PC</h1>
+                    </div>
+                    <div ng-if="myRario == null" class="col-sm-4" ng-repeat="item in itemPC | filter: {ten: myInput}">
+                        <div class="card" style="margin-bottom: 10px;">
+                            <img class="card-img-top" src="{{item.sanpham}}" alt="Card image" style="width:100%">
+                            <div class="card-body">
+                                <h4 class="card-title">{{item.ten}}</h4>
+                                <p class="card-text">{{item.gia | currency : '' : 0}} VNĐ</p>
+                                <a href="#!in4/{{item.ten}}" class="btn btn-primary stretched-link">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="myRario == 1" class="col-sm-4"
+                        ng-repeat="item in itemPC | orderBy : 'ten' | filter: {ten: myInput}">
+                        <div class="card" style="margin-bottom: 10px;">
+                            <img class="card-img-top" src="{{item.sanpham}}" alt="Card image" style="width:100%">
+                            <div class="card-body">
+                                <h4 class="card-title">{{item.ten}}</h4>
+                                <p class="card-text">{{item.gia | currency : '' : 0}} VNĐ</p>
+                                <a href="#!in4/{{item.ten}}" class="btn btn-primary stretched-link">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="myRario == 2" class="col-sm-4"
+                        ng-repeat="item in itemPC | orderBy : 'gia' | filter: {ten: myInput}">
+                        <div class="card" style="margin-bottom: 10px;">
+                            <img class="card-img-top" src="{{item.sanpham}}" alt="Card image" style="width:100%">
+                            <div class="card-body">
+                                <h4 class="card-title">{{item.ten}}</h4>
+                                <p class="card-text">{{item.gia | currency : '' : 0}} VNĐ</p>
+                                <a href="#!in4/{{item.ten}}" class="btn btn-primary stretched-link">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="myRario == 3" class="col-sm-4"
+                        ng-repeat="item in itemPC | orderBy : '-gia' | filter: {ten: myInput}">
+                        <div class="card" style="margin-bottom: 10px;">
+                            <img class="card-img-top" src="{{item.sanpham}}" alt="Card image" style="width:100%">
+                            <div class="card-body">
+                                <h4 class="card-title">{{item.ten}}</h4>
+                                <p class="card-text">{{item.gia | currency : '' : 0}} VNĐ</p>
+                                <a href="#!in4/{{item.ten}}" class="btn btn-primary stretched-link">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-switch-when="laptop">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h1>Laptop</h1>
+                    </div>
+                    <div ng-if="myRario == null" class="col-sm-4"
+                        ng-repeat="item in itemLaptop | filter: {ten: myInput}">
+                        <div class="card" style="margin-bottom: 10px;">
+                            <img class="card-img-top" src="{{item.sanpham}}" alt="Card image" style="width:100%">
+                            <div class="card-body">
+                                <h4 class="card-title">{{item.ten}}</h4>
+                                <p class="card-text">{{item.gia | currency : '' : 0}} VNĐ</p>
+                                <a href="#!in4/{{item.ten}}" class="btn btn-primary stretched-link">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="myRario == 1" class="col-sm-4"
+                        ng-repeat="item in itemLaptop | orderBy : 'ten' | filter: {ten: myInput}">
+                        <div class="card" style="margin-bottom: 10px;">
+                            <img class="card-img-top" src="{{item.sanpham}}" alt="Card image" style="width:100%">
+                            <div class="card-body">
+                                <h4 class="card-title">{{item.ten}}</h4>
+                                <p class="card-text">{{item.gia | currency : '' : 0}} VNĐ</p>
+                                <a href="#!in4/{{item.ten}}" class="btn btn-primary stretched-link">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="myRario == 2" class="col-sm-4"
+                        ng-repeat="item in itemLaptop | orderBy : 'gia' | filter: {ten: myInput}">
+                        <div class="card" style="margin-bottom: 10px;">
+                            <img class="card-img-top" src="{{item.sanpham}}" alt="Card image" style="width:100%">
+                            <div class="card-body">
+                                <h4 class="card-title">{{item.ten}}</h4>
+                                <p class="card-text">{{item.gia | currency : '' : 0}} VNĐ</p>
+                                <a href="#!in4/{{item.ten}}" class="btn btn-primary stretched-link">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="myRario == 3" class="col-sm-4"
+                        ng-repeat="item in itemLaptop | orderBy : '-gia' | filter: {ten: myInput}">
+                        <div class="card" style="margin-bottom: 10px;">
+                            <img class="card-img-top" src="{{item.sanpham}}" alt="Card image" style="width:100%">
+                            <div class="card-body">
+                                <h4 class="card-title">{{item.ten}}</h4>
+                                <p class="card-text">{{item.gia | currency : '' : 0}} VNĐ</p>
+                                <a href="#!in4/{{item.ten}}" class="btn btn-primary stretched-link">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-switch-default>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h1>PC</h1>
+                    </div>
+                    <div ng-if="myRario == null" class="col-sm-4" ng-repeat="item in itemPC | filter: {ten: myInput}">
+                        <div class="card" style="margin-bottom: 10px;">
+                            <img class="card-img-top" src="{{item.sanpham}}" alt="Card image" style="width:100%">
+                            <div class="card-body">
+                                <h4 class="card-title">{{item.ten}}</h4>
+                                <p class="card-text">{{item.gia | currency : '' : 0}} VNĐ</p>
+                                <a href="#!in4/{{item.ten}}" class="btn btn-primary stretched-link">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="myRario == 1" class="col-sm-4"
+                        ng-repeat="item in itemPC | orderBy : 'ten' | filter: {ten: myInput}">
+                        <div class="card" style="margin-bottom: 10px;">
+                            <img class="card-img-top" src="{{item.sanpham}}" alt="Card image" style="width:100%">
+                            <div class="card-body">
+                                <h4 class="card-title">{{item.ten}}</h4>
+                                <p class="card-text">{{item.gia | currency : '' : 0}} VNĐ</p>
+                                <a href="#!in4/{{item.ten}}" class="btn btn-primary stretched-link">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="myRario == 2" class="col-sm-4"
+                        ng-repeat="item in itemPC | orderBy : 'gia' | filter: {ten: myInput}">
+                        <div class="card" style="margin-bottom: 10px;">
+                            <img class="card-img-top" src="{{item.sanpham}}" alt="Card image" style="width:100%">
+                            <div class="card-body">
+                                <h4 class="card-title">{{item.ten}}</h4>
+                                <p class="card-text">{{item.gia | currency : '' : 0}} VNĐ</p>
+                                <a href="#!in4/{{item.ten}}" class="btn btn-primary stretched-link">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="myRario == 3" class="col-sm-4"
+                        ng-repeat="item in itemPC | orderBy : '-gia' | filter: {ten: myInput}">
+                        <div class="card" style="margin-bottom: 10px;">
+                            <img class="card-img-top" src="{{item.sanpham}}" alt="Card image" style="width:100%">
+                            <div class="card-body">
+                                <h4 class="card-title">{{item.ten}}</h4>
+                                <p class="card-text">{{item.gia | currency : '' : 0}} VNĐ</p>
+                                <a href="#!in4/{{item.ten}}" class="btn btn-primary stretched-link">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h1>Laptop</h1>
+                    </div>
+                    <div ng-if="myRario == null" class="col-sm-4"
+                        ng-repeat="item in itemLaptop | filter: {ten: myInput}">
+                        <div class="card" style="margin-bottom: 10px;">
+                            <img class="card-img-top" src="{{item.sanpham}}" alt="Card image" style="width:100%">
+                            <div class="card-body">
+                                <h4 class="card-title">{{item.ten}}</h4>
+                                <p class="card-text">{{item.gia | currency : '' : 0}} VNĐ</p>
+                                <a href="#!in4/{{item.ten}}" class="btn btn-primary stretched-link">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="myRario == 1" class="col-sm-4"
+                        ng-repeat="item in itemLaptop | orderBy : 'ten' | filter: {ten: myInput}">
+                        <div class="card" style="margin-bottom: 10px;">
+                            <img class="card-img-top" src="{{item.sanpham}}" alt="Card image" style="width:100%">
+                            <div class="card-body">
+                                <h4 class="card-title">{{item.ten}}</h4>
+                                <p class="card-text">{{item.gia | currency : '' : 0}} VNĐ</p>
+                                <a href="#!in4/{{item.ten}}" class="btn btn-primary stretched-link">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="myRario == 2" class="col-sm-4"
+                        ng-repeat="item in itemLaptop | orderBy : 'gia' | filter: {ten: myInput}">
+                        <div class="card" style="margin-bottom: 10px;">
+                            <img class="card-img-top" src="{{item.sanpham}}" alt="Card image" style="width:100%">
+                            <div class="card-body">
+                                <h4 class="card-title">{{item.ten}}</h4>
+                                <p class="card-text">{{item.gia | currency : '' : 0}} VNĐ</p>
+                                <a href="#!in4/{{item.ten}}" class="btn btn-primary stretched-link">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="myRario == 3" class="col-sm-4"
+                        ng-repeat="item in itemLaptop | orderBy : '-gia' | filter: {ten: myInput}">
+                        <div class="card" style="margin-bottom: 10px;">
+                            <img class="card-img-top" src="{{item.sanpham}}" alt="Card image" style="width:100%">
+                            <div class="card-body">
+                                <h4 class="card-title">{{item.ten}}</h4>
+                                <p class="card-text">{{item.gia | currency : '' : 0}} VNĐ</p>
+                                <a href="#!in4/{{item.ten}}" class="btn btn-primary stretched-link">Xem chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>

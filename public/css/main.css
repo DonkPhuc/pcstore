@@ -1,0 +1,21 @@
+.title {
+    font-size: 50px;
+}
+
+.card {
+    padding-bottom: 15px;
+    height: 95%;
+    border: rgba(190, 183, 183, 0.39) solid 1px;
+}
+
+label {
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+nav{
+ background: rgb(37, 17, 17);
+}

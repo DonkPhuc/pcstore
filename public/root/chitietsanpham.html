@@ -1,0 +1,22 @@
+<div class="row" ng-init="tragiatri()">
+    <div class="col-sm-12">
+        <h1 class="py-5 text-center" style="color: rgb(218, 158, 85);">{{caption | uppercase}}</h1>
+    </div>
+    <div class="col-sm-6">
+        <img src="{{ketqua.sanpham}}" style="width: 100%;">
+    </div>
+    <div class="col-sm-6">
+        <h1>Thông tin sản phẩm</h1>
+        <h2 id="TenSP" style="color: red; text-align: center;">{{ketqua.ten}}</h2>
+        <p>
+            <h3>cấu hình:</h3> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quisquam impedit
+            laudantium
+            dolores distinctio fugit vel amet, mollitia quos enim optio maxime beatae neque? Voluptatibus mollitia quasi
+            eius delectus odit.
+        </p>
+        <h3>Giá tiền: <span id="GiaSP" style="color: red;">{{ketqua.gia | currency : '' : 0}}</span></h3>
+        <h3 style="text-align: center;" class="themgio"><a href="#!shop/{{ketqua.ten}}/{{ketqua.gia}}" class="muahang"
+                data-toggle="tooltip" data-placement="bottom" title="Thêm vào giỏ" onclick="them()">Thêm vào giỏ</a>
+        </h3>
+    </div>
+</div>

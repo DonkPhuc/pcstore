@@ -1,0 +1,28 @@
+<form style="border: 1px solid orange; width: auto;" name="myForm">
+    <h1 style=" text-align: center; background-color: rgb(240, 110, 23); color: white;">{{caption | uppercase}}</h1>
+    <div class="container">
+        <label>Họ và tên</label>
+        </br>
+        <input type="text" class="form-control" ng-model="hoTen">
+        <div style="color: red;" ng-if="hoTen =='' || hoTen == null">
+            Nhập họ và tên</div>
+        </br>
+
+        <label>Email</label>
+        </br>
+        <input type="email" class="form-control" name="mail" ng-model="mail" required>
+        <div ng-show="myForm.mail.$invalid" style="color: red;">
+            Nhập Email</div>
+        </br>
+
+        <label>Ý kiến đóng góp</label>
+        </br>
+        <textarea class="form-control" ng-model="ghiChu"></textarea>
+        <div style="color: red;" ng-if="ghiChu =='' || ghiChu == null || ghiChu.length < 5">
+            Nhập ít nhất 5 ký tự</div>
+        </br>
+
+        <button class="btn btn-primary" ng-click="xacnhan(hoTen,mail,ghiChu)">Gửi</button>
+    </div>
+    <i class="py-5 px-3" style="color: red;">{{ketqua}}</i>
+</form>
